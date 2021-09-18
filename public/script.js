@@ -60,6 +60,7 @@ btnShortIt.addEventListener('click', async(e) => {
             }
             else{
                 output.innerHTML = `<a href="/${slug}" target="_blank"> /${slug}</a>`
+                output.focus()
             }
         }).catch((err)=>{
             output.innerHTML = '<span style="color:red;">Server Error</span>'
