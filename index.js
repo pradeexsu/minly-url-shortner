@@ -11,7 +11,10 @@ require('dotenv').config()
 
 const app = express()
 
-const db = require('monk')('localhost/minly')
+const monkatles = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_KEY}@ide-cluster.utfou.mongodb.net/minly?retryWrites=true&w=majority` 
+const monklocal = 'localhost/minly'
+
+const db = require('monk')(monkatles)
 
 const urily = db.get('urily')
 

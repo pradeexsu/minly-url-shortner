@@ -49,7 +49,7 @@ btnShortIt.addEventListener('click', async(e) => {
             body: JSON.stringify(data)
         }
 
-        fetch('http://localhost:3434/', options)
+        fetch(window.location.origin, options)
         .then(res => res.json())
         .then((result)=>{
             const msg = result.msg
