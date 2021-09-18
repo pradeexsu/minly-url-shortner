@@ -2,11 +2,16 @@ const uri = document.querySelector("input#uri")
 const slug = document.querySelector("input#slg")
 const btnShortIt = document.querySelector("button#btn-gl")
 const output = document.querySelector("#output")
+const copyIcon = document.querySelector("#copy-icon")
 
+document.body.onload = ()=>{
+    setTimeout(()=> uri.focus(), 1000 )
+}
 
-// window.addEventListener('load', (event) => {
-//     console.log('loaded');
-//   });
+copyIcon.addEventListener('click', ()=> {
+    const text = document.location.origin + document.querySelector("#outputSlug").innerHTML
+    navigator.clipboard.writeText(text)
+})
 
   
 const slugPattern = RegExp('^[-\\w]*$')
@@ -57,13 +62,17 @@ btnShortIt.addEventListener('click', async(e) => {
 
             if(msg){
                 output.innerHTML = '<span>slug is alredy in use! try another</span>'
+                copyIcon.style.display = 'none'
             }
             else{
-                output.innerHTML = `<a href="/${slug}" target="_blank"> /${slug}</a>`
+                output.innerHTML = `<a id="outputSlug" href="/${slug}" target="_blank">/${slug}</a>`
+                copyIcon.style.display = 'inline'
                 output.focus()
             }
         }).catch((err)=>{
             output.innerHTML = '<span style="color:red;">Server Error</span>'
+            copyIcon.style.display = 'none'
+
         }).then((nor)=>{
             syncAll()
         })

@@ -30,6 +30,12 @@ a:focus{
     font-size: large;
 }
 
+
+#copy-icon{
+    display: none;
+    margin-left: 40px;
+}
+
 p {
     margin: 0 0 20px;
 }
@@ -115,6 +121,9 @@ input::-webkit-input-placeholder {
     border: solid 1px var(--hl-border);
     -webkit-text-size-adjust: none;
     outline: none; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+
 }
 
 
