@@ -98,7 +98,7 @@ app.get('/:id', async (req, res, next) => {
             })
         } 
         else{
-            return res.redirect(308,item.uri)
+            return res.redirect(item.uri)
         } 
       } catch (error) {
             next(error)
