@@ -59,7 +59,7 @@ btnShortIt.addEventListener('click', async(e) => {
                 output.innerHTML = '<span>slug is alredy in use! try another</span>'
             }
             else{
-                output.innerHTML = `<a href="${window.location.host}/${slug}" target="_blank"> /${slug}</a>`
+                output.innerHTML = `<a href="/${slug}" target="_blank"> /${slug}</a>`
             }
         }).catch((err)=>{
             output.innerHTML = '<span style="color:red;">Server Error</span>'
