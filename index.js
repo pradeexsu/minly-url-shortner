@@ -48,7 +48,7 @@ app.get('/', (req, res, next) => {
     try {
         res.render("index",{
             heading:'Url Shortner',
-            msg:'made by <a href="http://github.com/sutharp777" target="_blank">@sutharp777</a>',
+            msg:'made by <a href="http://github.com/sutharp777"target="_blank">@sutharp777</a>'
         })
     } catch (error) {
         next(error)
@@ -94,7 +94,7 @@ app.get('/:id', async (req, res, next) => {
         if(!item){
             return res.render('index',{
                 heading:'oops!',
-                msg: '<span style="color:red;">redirection url not found</span>',
+                msg: '<span style="color:red;" id="outputSlug">redirection url not found</span>',
             })
         } 
         else{

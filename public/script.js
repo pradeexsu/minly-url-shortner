@@ -9,8 +9,18 @@ document.body.onload = ()=>{
 }
 
 copyIcon.addEventListener('click', ()=> {
-    const text = document.location.origin + document.querySelector("#outputSlug").innerHTML
-    navigator.clipboard.writeText(text)
+
+    if(document.querySelector("#outputSlug")){
+
+        const text = document.location.origin + document.querySelector("#outputSlug").innerHTML
+        document.querySelector('#tooltiptext').style.animation ='showcopied 5 ease-in-out'
+        document.querySelector('#tooltiptext').style.display ='inline'
+        setTimeout(()=>{
+            document.querySelector('#tooltiptext').style.display ='none'
+            },2000)   
+        navigator.clipboard.writeText(text)
+    }
+
 })
 
   
@@ -72,6 +82,7 @@ btnShortIt.addEventListener('click', async(e) => {
         }).catch((err)=>{
             output.innerHTML = '<span style="color:red;">Server Error</span>'
             copyIcon.style.display = 'none'
+
 
         }).then((nor)=>{
             syncAll()
