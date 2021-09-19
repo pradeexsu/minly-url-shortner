@@ -10,12 +10,7 @@ const { nanoid } = require('nanoid')
 require('dotenv').config()
 
 const app = express()
-
-const monkatles = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_KEY}@ide-cluster.utfou.mongodb.net/minly?retryWrites=true&w=majority` 
-const monklocal = 'localhost/minly'
-
-const db = require('monk')(monklocal)
-
+const db = require('monk')(process.env.MONK_URI)
 const urily = db.get('urily')
 
 const slugPattern = RegExp('^[-\\w]*$')
